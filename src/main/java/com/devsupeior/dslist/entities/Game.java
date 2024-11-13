@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Game {
 	
 	@Id  //o atributo id é escolhido como sendo a chave primária
-	@GeneratedValue(strategy = GenerationType.AUTO)  // o atributo id é auto-incrementado
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // o atributo id é auto-incrementado
 	private Long id;
 	private String title;
 	
@@ -24,7 +24,11 @@ public class Game {
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT") // aumentar a declaração em sql de varchar(255) para um texto grande
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT") // aumentar a declaração em sql de varchar(255) para um texto grande
 	private String longDescription;
 	
 	public Game() {
